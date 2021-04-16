@@ -1,0 +1,416 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+string NoInput(string& userInput) {
+    cout << "That was not one of the options. Unfortunately, your silliness and indecisiveness have led to your downfall, and you will not survive the night. Goodbye." << endl;
+    cout << endl;
+    cout << "Enter \"Replay\" to start over or \"exit(0)\" to quit." << endl;
+    cin >> userInput;
+
+    return userInput;
+}
+
+string LastThing(string& userInput) {
+    cout << "It's the last thing you ever do." << endl;
+    cout << endl;
+    cout << "Enter \"Replay\" to start over or \"exit(0)\" to quit." << endl;
+    cin >> userInput;
+
+    return userInput;
+}
+string FrozenNight(string& userInput) {
+    cout << "Sure enough, your fire quickly burns out. It was a small fire anyway, and it didn't do a whole lot for you. Shivering near to death. You crawl back into your tent, throw your sleeping bag over your head, and close your eyes" << endl;
+    cout << endl;
+    cout << "Enter \"Replay\" to start over or \"exit(0)\" to quit." << endl;
+    cin >> userInput;
+
+    return userInput;
+}
+string FrozenLake(string& userInput) {
+    cout << "You find, to your horror, that the lake is now frozen. You look on the ground to try and pick up sticks, but the hoarfrost has frozen them all to the ground. You are freezing cold, and there is no way to start a fire. With nothing else to do, you curl up, and go to sleep" << endl;
+    cout << endl;
+    cout << "Enter \"Replay\" to start over or \"exit(0)\" to quit." << endl;
+    cin >> userInput;
+
+    return userInput;
+}
+string BumpyGround(string& userInput) {
+    cout << "You wander and wander and wander some more. As you keep wandering, you start moving faster and faster until you are at a run. You fall and scrape yourself several times, but you just keep getting up and running. The panic starts to set in, and you begin to hyperventilate. Soon, you trip and fall one last time." << endl;
+    cout << endl;
+    cout << "Enter \"Replay\" to start over or \"exit(0)\" to quit." << endl;
+    cin >> userInput;
+
+    return userInput;
+}
+string FireWolf(string& userInput) {
+    cout << "It isn't too long before you get a nice, roaring fire going. The heat soothes your soul and builds your constitution. It isn't long before you feel strong enough to keep going again. Out of the corner of your eye, you notice someone join you next to the fire. You look over to see a rather canine fellow sitting there." << endl;
+    cout << endl;
+    cout << "Enter \"Replay\" to start over or \"exit(0)\" to quit." << endl;
+    cin >> userInput;
+
+    return userInput;
+}
+string WanderOne(string& userInput) {
+    cout << "You slowly make your way through the forest at first. The ground is bumpy and covered with roots, and you trip several times. After what feels like hours (but may have only been fifteen minutes) you still can't find your way out. What now?" << endl;
+    cout << "A: Continue exploring." << endl;
+    cout << "B: Try and build a fire." << endl;
+    cout << endl;
+    cout << "Enter \"A\" or \"B\"" << endl;
+    cin >> userInput;
+
+    if(userInput == "A") {
+        BumpyGround(userInput);
+    }
+    if(userInput == "B") {
+        FireWolf(userInput);
+    }
+
+    return userInput;
+}
+
+string DryMouth(string& userInput) {
+    cout << "You open your mouth to shout but your throat starts to feel extremely dry and hoarse. Try as you might, nothing will come out. In fact, it keeps getting worse and worse until, soon, you can't even breathe." << endl;
+    cout << endl;
+    cout << "Enter \"Replay\" to start over or \"exit(0)\" to quit." << endl;
+    cin >> userInput;
+
+    return userInput;
+}
+
+string CrunchIce(string& userInput) {
+    cout << "On your way back down the hill, you notice that your feet are crunching down on ice. Cold, hungry, and exhausted, you begin to give up all hope. You collapse into the icy ground, but you don't even care anymore. You simply close your eyes, and begin to cry." << endl;
+    cout << endl;
+    cout << "Enter \"Replay\" to start over or \"exit(0)\" to quit." << endl;
+    cin >> userInput;
+
+    return userInput;
+}
+
+string SurvivedEnding(string& userInput) {
+    cout << "You close your eyes and eventually get to sleep. You open your eyes the next morning and look up at the beautiful sight of the rising sun. You survived the frozen evening, but you are still as alone as ever. Not knowing what else to do, you stand up, take a deep breath, and face the uncertain future." << endl;
+    cout << endl;
+    cout << "Congratulations! You have acheived the \"Survived\" ending!" << endl;
+    cout << "Enter \"exit(0)\" if you want to quit (or \"Replay\" to start over)." << endl;
+    cout << "Thanks for playing!" << endl;
+    cin >> userInput;
+
+    if(userInput != "Replay") {
+        userInput = "exit(0)";
+    }
+
+    return userInput;
+}
+
+string LargeFire(string& userInput) {
+    cout << "You grab some of the wood and walk quickly back to camp. You get the tinder going and it is not long before you have a nice, roaring fire. For a second, it seems that all your worries are behind you. Your excitement is short lived, however, when you realize that you are still alone. Taking a deep breath, you think of what to do next:" << endl;
+    cout << "A: Close your eyes and go to sleep." << endl;
+    cout << "B: (More options coming soon)" << endl;
+    cout << endl;
+    cout << "Enter \"A\" to end the demo" << endl;
+    cin >> userInput;
+
+    while((userInput != "A") && (userInput != "Replay") && (userInput != "exit(0)")) {
+        cin >> userInput;
+        if(userInput == "B") {
+            cout << "(More options coming soon)" << endl;
+        }
+    }
+    if(userInput == "A") {
+        SurvivedEnding(userInput);
+    }
+
+    return userInput;
+}
+
+string InvestigateFurther(string& userInput) {
+    cout << "You take a look at where the mysterious figure was standing, and boy are you glad you did! Right there you see a stack of high quality firewood perfect to start a fire for the rest of the night! Feeling excited, but a bit nervous, you..." << endl;
+    cout << "A: Leave the firewood alone and head back to camp." << endl;
+    cout << "B: Take the firewood with you." << endl;
+    cout << endl;
+    cout << "Enter \"A\" or \"B\"" << endl;
+    cin >> userInput;
+
+    if(userInput == "A") {
+        CrunchIce(userInput);
+    }
+    if(userInput == "B") {
+        LargeFire(userInput);
+    }
+
+    return userInput;
+}
+
+string ApproachWearily(string& userInput) {
+    cout << "Shaking in the cold and in fear, you slowly approach the figure's standing spot. As you approach, however, you realize that the figure is gone." << endl;
+    cout << "A: Investigate further." << endl;
+    cout << "B: Go back." << endl;
+    cout << endl;
+    cout << "Enter \"A\" or \"B\"" << endl;
+    cin >> userInput;
+
+    if(userInput == "A") {
+        InvestigateFurther(userInput);
+    }
+    if(userInput == "B") {
+        CrunchIce(userInput);
+    }
+
+    return userInput;
+}
+
+string ScaryForest(string& userInput) {
+    cout << "There is plenty of wood in here, but it is also really dark and confusing. It is not long before you get lost. What do you do?" << endl;
+    cout << "A: Try to find your way out." << endl;
+    cout << "B: Try to start a fire in there." << endl;
+    cout << "C: Nothing." << endl;
+    cout << endl;
+    cout << "Enter \"A\", \"B\", or \"C\"" << endl;
+    cin >> userInput;
+
+    if(userInput == "A") {
+        WanderOne(userInput);
+    }
+    if(userInput == "B") {
+        FireWolf(userInput);
+    }
+    if(userInput == "C") {
+        LastThing(userInput);
+    }
+
+    return userInput;
+}
+string LakeForestTwo(string& userInput) {
+    cout << "Do you go to the scary forest or to the wide lake?" << endl;
+    cout << "A: Scary forest" << endl;
+    cout << "B: Wide Lake" << endl;
+    cout << endl;
+    cout << "Enter \"A\" or \"B\"" << endl;
+    cin >> userInput;
+
+    if(userInput == "A") {
+        ScaryForest(userInput);
+    }
+    else if(userInput == "B") {
+        FrozenLake(userInput);
+    }
+
+    return userInput;
+}
+
+string EasterEgg(string& userInput, string easterEgg) {
+    cout << "Not knowing what to do, you look up into the heaven and scream " << easterEgg << flush;
+    if(easterEgg == "Hallelujah!") {
+        cout << " you cast your eyes to the side and see a stack of nice, dry firewood especially for you! How do you feel?" << endl;
+        cout << "A: Excited!" << endl;
+        cout << "B: Happy!" << endl;
+        cout << endl;
+        cout << "Enter \"A\" or \"B\"" << endl;
+        cin >> userInput;
+        if((userInput == "A") || (userInput == "B")) {
+            LargeFire(userInput);
+        }
+    }
+    else {
+        cout << " you cast your eyes down, and, in despair, watch as your fire slowly goes out." << endl;
+        cout << endl;
+        cout << "Enter \"Replay\" to start over or \"exit(0)\" to quit." << endl;
+        cin >> userInput;
+    }
+
+    return userInput;
+}
+
+string SmallFire(string& userInput) {
+    string easterEgg = "a";
+    cout << "You return and, with some effort, you manage to get a small fire started. It is not enough to keep you until morning. Do you:" << endl;
+    cout << "A: Try and sit it out anyway?" << endl;
+    cout << "B: Look for more firewood?" << endl;
+    cout << endl;
+    cout << "Enter \"A\" or \"B\"" << endl;
+    cin >> userInput;
+
+    if(userInput == "A") {
+        FrozenNight(userInput);
+    }
+    else if(userInput == "B") {
+        LakeForestTwo(userInput);
+    }
+    else if(userInput == "C") {
+        cin >> easterEgg;
+        EasterEgg(userInput, easterEgg);
+    }
+
+    return userInput;
+}
+
+string CallFriend(string& userInput) {
+    cout << "As you shout, you suddenly see the form of a human standing on a hill across the way. Do you:" << endl;
+    cout << "A: Begin Approaching it wearily." << endl;
+    cout << "B: Call out to see if it's your friend." << endl;
+    cout << "C: Go collect firewood." << endl;
+    cout << endl;
+    cout << "Enter \"A\", \"B\", or \"C\"" << endl;
+    cin >> userInput;
+
+    if(userInput == "A") {
+        ApproachWearily(userInput);
+    }
+    if(userInput == "B") {
+        DryMouth(userInput);
+    }
+    if(userInput == "C") {
+        LakeForestTwo(userInput);
+    }
+
+    return userInput;
+}
+
+string WideLakeOne(string& userInput) {
+    cout << "There isn't a whole lot of wood next to the lake, just some small sticks. Still, you can start a small fire with it." << endl;
+    cout << "A: Return to camp and try to get that fire going." << endl;
+    cout << "B: Continue looking for firewood." << endl;
+    cout << endl;
+    cout << "Enter \"A\" or \"B\"" << endl;
+    cin >> userInput;
+
+    if(userInput == "A") {
+        SmallFire(userInput);
+    }
+    if(userInput == "B") {
+        FrozenLake(userInput);
+    }
+
+    return userInput;
+}
+
+string WaitOne(string& userInput) {
+    cout << "Somehow, the dark night gets darker. You can't see the moon, the stars start to disappear, and the wind picks up." << endl;
+    cout << "A: Continue waiting." << endl;
+    cout << "B: Finally look for firewood." << endl;
+    cout << "C: Start calling out the names of your friends." << endl;
+    cout << endl;
+    cout << "Enter \"A\", \"B\", or \"C\"" << endl;
+    cin >> userInput;
+
+    if(userInput == "A") {
+        LastThing(userInput);
+    }
+    if(userInput == "B") {
+        LakeForestTwo(userInput);
+    }
+    if(userInput == "C") {
+        CallFriend(userInput);
+    }
+
+    return userInput;
+}
+
+string LakeForestOne(string& userInput) {
+    cout << "Do you go to the wide lake or to the scary forest?" << endl;
+    cout << "A: Wide lake." << endl;
+    cout << "B: Scary forest." << endl;
+    cout << endl;
+    cout << "Enter \"A\" or \"B\"" << endl;
+    cin >> userInput;
+    if (userInput == "A") {
+        WideLakeOne(userInput);
+    }
+    else if (userInput == "B") {
+        ScaryForest(userInput);
+    }
+
+    return userInput;
+}
+string FirstDecision(string& userInput) {
+    cout << "Cold and shivering, you stand outside your tent. What do you want to do?" << endl;
+    cout << endl;
+    cout << "A: Go Searching for firewood." << endl;
+    cout << "B: Stand Outside your tent and wait." << endl;
+    cout << "C: Crawl back inside your tent and try and go back to sleep." << endl;
+    cout << "Enter \"A\", \"B\", or \"C\"." << endl;
+    cin >> userInput;
+
+    if(userInput == "A") { // tier 2 (A)
+        LakeForestOne(userInput);
+    }
+    else if(userInput == "B") { // tier 2 (B)
+        WaitOne(userInput);
+    }
+    else if (userInput == "C") { // tier 2 (C)
+        cout << "%#@^#" << endl;
+        cout << "!@#$3" << endl;
+        cout << "(*@#$" << endl;
+        cout << "The End" << endl;
+        cout << endl;
+        cout << "Enter \"Replay\" to start over or \"exit(0)\" to quit." << endl;
+        cin >> userInput;
+    }
+
+    return userInput;
+}
+
+string GameIntro(string& userInput) {
+    cout << "Introduction:" << endl;
+    cout << "You are out camping with some friends and their dad. You set up camp, cook marshmallows, sing campfire songs. Everyone says goodnight and you all go to bed. Later that evening your eyes snap open and, unable to go back to sleep, you crawl out into the cold dark night. You look around a bit, trying to find your fellows until, finally, you realize the truth." << endl;
+    cout << "You're alone." << endl;
+    cout << endl;
+    cout << "Enter \"A\" to continue:" << endl;
+    cin >> userInput;
+    while((userInput != "A") && (userInput != "exit(0)")) {
+        cout << "Enter \"A\" to continue:" << endl;
+        cin >> userInput;
+    }
+
+    return userInput;
+}
+
+string GamePreamble(string& userInput) {
+    while((userInput != "Begin") && (userInput != "exit(0)")) {
+        cout << "Preamble" << endl;
+        cout << "Warning: What you are about to experience is a real life simulation of extreme fatigue and loneliness. Many people who venture upon these waters find that their lives are forever altered by the experience. Side effects of engaging in such a venture may include, but are not limited to: screaching, shouting, dying, forgetting, sudden and unexplained political activism, an urge to punch whoever is sitting next to you in the face, and so much more. If you wish to procede with such a dangerous endeavor than remember this: if you find that things aren't going your way and your sticks are too few, don't be afraid to choose an option that isn't there and scream Hallelujah! Doing this may be your best chance at proceding forth from a long trail. If, at any point, you wish to quit and go back, you may enter in the phrase \"exit(0)\" to be mercifully released. You may now procede with your experience." << endl;
+        cout << endl;
+        cout << "Type the word \"Begin\" and press the \"enter\" key in order to start." << endl;
+        cin >> userInput;
+    }
+    if(userInput == "Begin") {
+        GameIntro(userInput);
+    }
+
+    return userInput;
+}
+
+void DrawStar() {
+    srand(time(0));
+    int numStar = rand() % 50 + 1;
+    for (int i = 0; i <= numStar; ++i) {
+        cout << "*";
+    }
+    cout << endl;
+}
+
+int main() {
+    string userInput;
+
+    while (userInput != "exit(0)") {
+
+        DrawStar();
+        GamePreamble(userInput);
+
+        if (userInput != "exit(0)") {
+            userInput = "Replay";
+        }
+
+        while (userInput == "Replay") {
+            FirstDecision(userInput);
+            if ((userInput != "Replay") && (userInput != "exit(0)")) {
+                NoInput(userInput);
+            }
+        }
+    }
+    cout << "Goodbye" << endl;
+
+    return 0;
+}
